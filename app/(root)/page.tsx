@@ -1,11 +1,15 @@
-import { Button } from "@/components/ui/button";
-import { UserButton
-} from "@clerk/nextjs";
+"use client";
 
-export default function SetupPage() {
+import { Modal } from "@/components/ui/modal";
+
+const SetupPage = () => {
   return (
-    <div className="p-2">
-      <UserButton afterSignOutUrl="/"/>
+    <div className="p-4" suppressHydrationWarning={true}>
+      <Modal title="Test" description="Test Desc" isOpen onClose={() => {}}>
+        Children
+      </Modal>
     </div>
   );
-}
+};
+
+export default SetupPage;
