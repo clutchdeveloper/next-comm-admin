@@ -20,8 +20,8 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>
-          <ToasterProvider/>
+        <body suppressHydrationWarning={true} className={inter.className}>
+          <ToasterProvider />
           <ModalProvider />
           {children}
         </body>
