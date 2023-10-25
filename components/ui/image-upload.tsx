@@ -12,7 +12,7 @@ interface ImageUploadProps {
   onChange: (value: string) => void;
   onRemove: (value: string) => void;
   value: string[];
-};
+}
 
 const ImageUpload: React.FC<ImageUploadProps> = ({ disabled, onChange, onRemove, value }) => {
   const [isMounted, setIsMounted] = useState(false);
@@ -21,13 +21,14 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ disabled, onChange, onRemove,
     setIsMounted(true);
   }, []);
 
-  if (!isMounted) {
-    return null;
-  }
-
-  const onUpload = (result: any) => {
+   const onUpload = (result: any) => {
     onChange(result.info.secure_url);
   };
+
+   if (!isMounted) {
+     return null;
+  }
+  
   return (
     <div>
       <div className="mb-4 flex items-center gap-4">
@@ -42,7 +43,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ disabled, onChange, onRemove,
           </div>
         ))}
       </div>
-      <CldUploadWidget onUpload={onUpload} uploadPreset="porvypih">
+      <CldUploadWidget onUpload={onUpload} uploadPreset="ml_default">
         {({ open }) => {
           const onClick = () => {
             open();
