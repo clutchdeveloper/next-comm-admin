@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { BillboardColumn } from "./columns";
-import { Edit, MoreHorizontal } from "lucide-react";
+import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
 import { DropdownMenu, DropdownMenuLabel, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 interface CellActionProps {
@@ -19,9 +19,17 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuItem>
-                  <Edit className="mr-2 h-4 w-4" />
-                  Update
+        <DropdownMenuItem>
+          <Copy className="mr-2 h-4 w-4" />
+          Copy Id
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Edit className="mr-2 h-4 w-4" />
+          Update
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Trash className="mr-2 h-4 w-4" />
+          Delete
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
