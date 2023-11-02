@@ -3,7 +3,7 @@ interface HeadingProps {
     description: string;
 }
 
-const Heading: React.FC<HeadingProps> = ({title, description}) => {
+export const Heading: React.FC<HeadingProps> = ({title, description}) => {
   return (
       <div>
           
@@ -13,4 +13,3 @@ const Heading: React.FC<HeadingProps> = ({title, description}) => {
   )
 }
 
-export default Heading

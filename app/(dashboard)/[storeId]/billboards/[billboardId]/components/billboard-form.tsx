@@ -3,7 +3,7 @@
 import * as z from "zod";
 
 import { Button } from "@/components/ui/button";
-import Heading from "@/components/ui/heading";
+import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
 import { Billboard, Store } from "@prisma/client";
 import { Trash } from "lucide-react";
@@ -16,8 +16,7 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import { AlertModal } from "@/components/modals/alert-modal";
-import ApiAlert from "@/components/ui/api-alert";
-import { useOrigin } from "@/hooks/use-origin";
+
 import { URL } from "url";
 import ImageUpload from "@/components/ui/image-upload";
 
@@ -35,7 +34,7 @@ type BillboardFormValues = z.infer<typeof formSchema>;
 export const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
   const router = useRouter();
   const params = useParams();
-  const origin = useOrigin();
+  
 
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -63,6 +62,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => 
       }
      
       router.refresh();
+      router.push(`/${params.storeId}/billboards`)
        toast.success(toastMessage);
     } catch (error) {
       toast.error("Something went wrong");
