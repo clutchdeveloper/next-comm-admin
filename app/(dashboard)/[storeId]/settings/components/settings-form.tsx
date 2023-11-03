@@ -3,7 +3,7 @@
 import * as z from "zod";
 
 import { Button } from "@/components/ui/button";
-import Heading from "@/components/ui/heading";
+import {Heading} from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
 import { Store } from "@prisma/client";
 import { Trash } from "lucide-react";
