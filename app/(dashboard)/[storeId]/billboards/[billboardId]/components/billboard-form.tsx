@@ -34,7 +34,6 @@ type BillboardFormValues = z.infer<typeof formSchema>;
 export const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
   const router = useRouter();
   const params = useParams();
-  
 
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -60,10 +59,10 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => 
       } else {
         await axios.post(`/api/${params.storeId}/billboards`, data);
       }
-     
+
       router.refresh();
-      router.push(`/${params.storeId}/billboards`)
-       toast.success(toastMessage);
+      router.push(`/${params.storeId}/billboards`);
+      toast.success(toastMessage);
     } catch (error) {
       toast.error("Something went wrong");
     } finally {
@@ -76,7 +75,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => 
       setLoading(true);
       await axios.delete(`/api/${params.storeId}/billboards/${params.billboardId}`);
       router.refresh();
-      router.push("/");
+      router.push(`${params.storeId}/billboards`);
       toast.success("Billboard deleted.");
     } catch (error) {
       toast.error("Make sure you removed all categories using this billboard first");
