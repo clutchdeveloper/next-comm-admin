@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body suppressHydrationWarning={true} className={inter.className}>
+        <body suppressHydrationWarning={true} className={inter}>
           <ToasterProvider />
           <ModalProvider />
           {children}

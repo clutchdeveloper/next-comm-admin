@@ -3,18 +3,18 @@ import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
 export default async function SetupLyout({ children }: { children: React.ReactNode }) {
-    const { userId } = auth()
-    
-    if (!userId) {
-        redirect('/sign-in')
-    }
+  const { userId } = auth();
 
-    const store = await prismadb.store.findFirst({
-        where:{userId}
-    })
+  if (!userId) {
+    redirect("/sign-in");
+  }
 
-    if (store) {
-        redirect(`/${store.id}`)
-    }
-    return <>{children}</>
+  const store = await prismadb.store.findFirst({
+    where: { userId },
+  });
+
+  if (store) {
+    redirect(`/${store.id}`);
+  }
+  return <>{children}</>;
 }
